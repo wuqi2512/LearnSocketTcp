@@ -1,4 +1,5 @@
 ﻿using Common;
+using GamePlay;
 using System.Net.Sockets;
 
 namespace Server
@@ -87,16 +88,16 @@ namespace Server
 
         private void MessageHandler(BaseMessage message)
         {
-            switch (message.MessageType)
+            switch (message.MegId)
             {
-                case MessageType.String:
+                case 2002:
                     StringMsg stringMsg = message as StringMsg;
                     Console.WriteLine("Message '{0}' from '{1}'.", stringMsg.Str, m_Socket.RemoteEndPoint);
                     break;
-                case MessageType.Heart:
+                case 1001:
                     m_LastHeartMsgTime = DateTime.Now.Ticks / TimeSpan.TicksPerSecond;
                     break;
-                case MessageType.Quit:
+                case 1002:
                     ServerProgram.s_ServerSocket.RemoveClient(this.m_ClientId);
                     break;
             }

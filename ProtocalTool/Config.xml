@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<messages>
+	<enum name="Camp" namespace="GamePlay">
+		<field name="Player1">1</field>
+		<field name="Player2">2</field>
+		<field name="Monster"></field>
+	</enum>
+	<data name="PlayerData" namespace="GamePlay">
+		<field type="int" name="TestInt"/>
+		<field type="float" name="TestFloat"/>
+		<field type="list" T ="int" name="TestList"/>
+		<field type="array" T ="int" name="TestArray"/>
+		<field type="dic" TKey ="int" TValue="string" name="TestDic"/>
+		<field type="enum" T="Camp" name="TestEnum"/>
+	</data>
+	<message id="2001" name="PlayerMsg" namespace="GamePlay">
+		<field type="int" name="PlayerId"/>
+		<field type="PlayerData" name="Data"/>
+	</message>
+	<message id="2002" name="StringMsg" namespace="GamePlay">
+		<field type="string" name="Str"/>
+	</message>
+	<message id="1001" name="HeartMsg" namespace="GameSystem"/>
+	<message id="1002" name="QuitMsg" namespace="GameSystem"/>
+</messages>

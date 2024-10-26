@@ -1,4 +1,6 @@
 ﻿using Common;
+using GamePlay;
+using GameSystem;
 using System.Net.Sockets;
 
 namespace Client
@@ -92,9 +94,9 @@ namespace Client
 
         private void MessageHandler(BaseMessage message)
         {
-            switch (message.MessageType)
+            switch (message.MegId)
             {
-                case MessageType.String:
+                case 2002:
                     StringMsg stringMsg = message as StringMsg;
                     Console.WriteLine("Message '{0}' from '{1}'.", stringMsg.Str, m_Socket.RemoteEndPoint);
                     break;

@@ -1,0 +1,56 @@
+﻿syntax = "proto3"; // 第一行版本号，默认proto2
+
+// 注释1
+/*注释2*/
+
+// import "fileName"; 导入其他定义
+
+package GameSystem; // 命名空间
+
+// message enum 都可以嵌套
+
+message TestMsg{
+	// 类型
+	// 浮点数 float double
+	// 变长编码 int32 int64 sint32 sint64 uint32 uint64
+	// int32 int64的效率低，建议使用 sint32 sint64
+	// 固定长度 fixed32 fixed64 sfixed32 sfixed64
+	// 表示大数时更高效
+	// 其他 bool string bytes(字节字符串)
+
+	// 默认值
+	// string 空字符串
+	// bytest 空字节
+	// bool false
+	// 数值 0
+	// 枚举 0
+	// message C#中为空
+
+	// 特殊标识
+	// required 必须赋值 proto2
+	// optional 可以不赋值
+	// repeated 数组
+	// map 字典
+
+	// 保留字段
+	// reserved id;
+	// reserved fieldName;
+
+	float testF = 1; // 字段 类型 + 唯一编号
+	double testD = 2;
+	sint32 testSInt = 3;
+	uint64 testULong = 4;
+	bool testBool = 5;
+	string testString = 6;
+	bytes testBytesString = 7;
+	repeated sint32 testListSInt = 8;
+	map<sint32, string> testMap = 9;
+	// namesapce.TypeName fileName = id; 使用其他命名空间的类型
+}
+
+enum TestEnum{
+	None = 0; // 第一个必须映射到0
+	Test1 = 4;
+}
+
+// protoc.exe -I=配置路径 --csharp_out=输出路径 配置文件名

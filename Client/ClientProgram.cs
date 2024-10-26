@@ -1,4 +1,6 @@
 ﻿using Common;
+using GameSystem;
+using GamePlay;
 
 namespace Client
 {
@@ -23,7 +25,9 @@ namespace Client
                 }
                 else
                 {
-                    clientSocket.BeingSend(new StringMsg(input));
+                    StringMsg stringMsg = new StringMsg();
+                    stringMsg.Str = input;
+                    clientSocket.BeingSend(stringMsg);
                 }
             }
         }
